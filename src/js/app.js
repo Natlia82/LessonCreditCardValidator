@@ -1,6 +1,7 @@
 // TODO: write your code here
 import valid from './validate';
 import Karts from './karts';
+
 const but = document.getElementById('submitform');
 but.addEventListener('click', () => {
     ClearClass();
