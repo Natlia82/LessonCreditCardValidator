@@ -48,4 +48,19 @@ describe('INN/OGRN form', () => {
         expect(value).toBe("MaestroCard");
 
     });
+
+    test('test DiscoverCard', async() => {
+        await page.goto(baseUrl);
+        const form = await page.$('#form');
+        const input = await form.$('.form-control');
+        await input.type('6011782763842553');
+        const submit = await form.$('#submitform');
+        submit.click();
+
+        //await page.waitForSelector(".map");
+        const element = await page.waitForSelector(".map");
+        const value = await element.evaluate(el => el.textContent);
+        expect(value).toBe("DiscoverCard");
+
+    });
 });

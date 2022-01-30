@@ -1,7 +1,13 @@
-import sum from '../basic';
+import valid from '../validate';
 
-test('should sum', () => {
-  const result = sum([1, 2, 3]);
+test('valid', () => {
+    const result = valid("6304448265776071");
 
-  expect(result).toBe(6);
+    expect(result).toBe(true);
+});
+
+test('not valid', () => {
+    const result = valid("111");
+
+    expect(result).toBe(false);
 });

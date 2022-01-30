@@ -1,12 +1,24 @@
-import puppetteer from 'puppeteer';
+import Karts from '../karts';
 
-(async() => {
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
-    await page.goto('https://zen.yandex.ru/media/lapretty/modnye-sapogi-na-osen-2021-6123273233b2222d5d075aed?&utm_campaign=dbr', {
-        waitUntil: 'networkidle2',
-    });
-    await page.pdf({ path: 'd:\hn.pdf', format: 'a4' });
+test('MaestroCard', () => {
+    const result = Karts("6761058594070785");
 
-    await browser.close();
-})();
+    expect(result).toBe(".MaestroCard");
+});
+
+test('JCBCard', () => {
+    const result = Karts("3536722356837860");
+
+    expect(result).toBe(".JCBCard");
+});
+
+test('DiscoverCard', () => {
+    const result = Karts("6011089719783141");
+
+    expect(result).toBe(".DiscoverCard");
+});
+test('AmexCard', () => {
+    const result = Karts("346734230587658");
+
+    expect(result).toBe(".AmexCard");
+});

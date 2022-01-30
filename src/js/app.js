@@ -6,8 +6,8 @@ const but = document.getElementById('submitform');
 but.addEventListener('click', () => {
     ClearClass();
     let text = document.getElementById('card_number').value;
-    console.log(text);
-    console.log(valid(text));
+    // console.log(text);
+    //console.log(valid(text));
     if (valid(text)) {
         // console.log(Karts(text));
         const kart = document.querySelector(Karts(text));
