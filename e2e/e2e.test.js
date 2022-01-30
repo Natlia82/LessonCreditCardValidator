@@ -20,14 +20,32 @@ describe('INN/OGRN form', () => {
         await browser.close();
     });
 
-    test('test1', async() => {
+    test('test VisaMasterCard', async() => {
         await page.goto(baseUrl);
         const form = await page.$('#form');
         const input = await form.$('.form-control');
         await input.type('4766831970270199');
         const submit = await form.$('#submitform');
         submit.click();
-        //await page.waitFor('.map');
-        await page.waitForSelector(".map");
+
+        //await page.waitForSelector(".map");
+        const element = await page.waitForSelector(".map");
+        const value = await element.evaluate(el => el.textContent);
+        expect(value).toBe("VisaMasterCard");
+
+    });
+    test('test MaestroCard', async() => {
+        await page.goto(baseUrl);
+        const form = await page.$('#form');
+        const input = await form.$('.form-control');
+        await input.type('5038740577003946');
+        const submit = await form.$('#submitform');
+        submit.click();
+
+        //await page.waitForSelector(".map");
+        const element = await page.waitForSelector(".map");
+        const value = await element.evaluate(el => el.textContent);
+        expect(value).toBe("MaestroCard");
+
     });
 });
