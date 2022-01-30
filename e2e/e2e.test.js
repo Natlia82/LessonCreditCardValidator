@@ -9,7 +9,7 @@ describe('INN/OGRN form', () => {
 
     beforeAll(async() => {
         browser = await puppetteer.launch({
-            headless: true, // показать графический интерфейс
+            headless: false, // показать графический интерфейс
             slowMo: 500,
             devtools: true, // показать инструменты разработки
         });
@@ -20,13 +20,14 @@ describe('INN/OGRN form', () => {
         await browser.close();
     });
 
-    test('should add .valid class for valid inn', async() => {
+    test('test1', async() => {
         await page.goto(baseUrl);
-        constform = await page.$('[data-widget=innogrn-form-widget]');
-        constinput = await form.$('[data-id=innogrn-input]');
-        await input.type('7715964180');
-        const submit = await form.$('[data-id=innogrn-submit]');
+        const form = await page.$('#form');
+        const input = await form.$('.form-control');
+        await input.type('4766831970270199');
+        const submit = await form.$('#submitform');
         submit.click();
-        await page.waitFor('[data-id=innogrn-input].valid');
+        //await page.waitFor('.map');
+        await page.waitForSelector(".map");
     });
 });
