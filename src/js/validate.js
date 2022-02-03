@@ -9,7 +9,7 @@ export default function valid(value) {
         const cDigit = val.charAt(n);
         nDigit = parseInt(cDigit, 10);
         if (bEven) {
-            if ((nDigit *= 2) > 9) nDigit -= 9;
+            if ((nDigit = nDigit * 2) > 9) nDigit -= 9;
         }
         nCheck += nDigit;
         bEven = !bEven;
